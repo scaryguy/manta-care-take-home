@@ -35,3 +35,4 @@ this, they should seek immediate attention. Please call this out visually to the
 * Be sure to include simple instructions on how to install/run on a developer workstation.
 * Submit your completed assignment in a new github repo or by creating a .zip archive. If you want to submit as a .zip archive, 
   Note that gmail and other mail services will block this type of .zip attachment, so you may need to file sharing service like dropbox or google drive.
+* If you have any questions about the homework please reach out to tessa@mantacares.com
