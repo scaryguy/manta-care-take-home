@@ -69,7 +69,7 @@ const getInterventionById: webMethod = {
   name: "getById",
   request: requestType.GET,
   arguments: {
-    id: { type: "number", requestMethod: requestMethod.PARAM }
+    id: { type: "number|string", requestMethod: requestMethod.PARAM }
   },
   callback: function(id: number): result {
     id = typeof id === 'string' ? Number(id) : id
@@ -127,7 +127,7 @@ const updateIntervention: webMethod = {
   name: "update",
   request: requestType.PUT,
   arguments: {
-    id: { type: "number", requestMethod: requestMethod.PARAM },
+    id: { type: "number|string", requestMethod: requestMethod.PARAM },
     name: { type: "string", requestMethod: requestMethod.JSON },
     description: { type: "string", requestMethod: requestMethod.JSON },
     severity: { type: "object", requestMethod: requestMethod.JSON },
@@ -204,7 +204,7 @@ const getSymptomById: webMethod = {
   name: "getById",
   request: requestType.GET,
   arguments: {
-    id: { type: "number", requestMethod: requestMethod.PARAM }
+    id: { type: "number|string", requestMethod: requestMethod.PARAM }
   },
   callback: function(id: number): result {
     id = typeof id === 'string' ? Number(id) : id
@@ -252,7 +252,7 @@ const updateSymptom: webMethod = {
   name: "update",
   request: requestType.PUT,
   arguments: {
-    id: { type: "number", requestMethod: requestMethod.JSON },
+    id: { type: "number|string", requestMethod: requestMethod.JSON },
     name: { type: "string", requestMethod: requestMethod.JSON },
     description: { type: "string", requestMethod: requestMethod.JSON },
     interventions: { type: "object", requestMethod: requestMethod.JSON }
@@ -280,7 +280,7 @@ const deleteSymptom: webMethod = {
   name: "delete",
   request: requestType.DELETE,
   arguments: {
-    id: { type: "number", requestMethod: requestMethod.PARAM }
+    id: { type: "number|string", requestMethod: requestMethod.PARAM }
   },
   callback: function(id: number): result {
     id = typeof id === 'string' ? Number(id) : id
