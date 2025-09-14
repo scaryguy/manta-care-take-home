@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as SymptomsIndexRouteImport } from './routes/symptoms.index'
 import { Route as SymptomsSymptomIdRouteImport } from './routes/symptoms.$symptomId'
+import { Route as SymptomsSymptomIdSeverityRouteImport } from './routes/symptoms.$symptomId.$severity'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -28,34 +29,56 @@ const SymptomsSymptomIdRoute = SymptomsSymptomIdRouteImport.update({
   path: '/symptoms/$symptomId',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SymptomsSymptomIdSeverityRoute =
+  SymptomsSymptomIdSeverityRouteImport.update({
+    id: '/$severity',
+    path: '/$severity',
+    getParentRoute: () => SymptomsSymptomIdRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/symptoms/$symptomId': typeof SymptomsSymptomIdRoute
+  '/symptoms/$symptomId': typeof SymptomsSymptomIdRouteWithChildren
   '/symptoms': typeof SymptomsIndexRoute
+  '/symptoms/$symptomId/$severity': typeof SymptomsSymptomIdSeverityRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/symptoms/$symptomId': typeof SymptomsSymptomIdRoute
+  '/symptoms/$symptomId': typeof SymptomsSymptomIdRouteWithChildren
   '/symptoms': typeof SymptomsIndexRoute
+  '/symptoms/$symptomId/$severity': typeof SymptomsSymptomIdSeverityRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/symptoms/$symptomId': typeof SymptomsSymptomIdRoute
+  '/symptoms/$symptomId': typeof SymptomsSymptomIdRouteWithChildren
   '/symptoms/': typeof SymptomsIndexRoute
+  '/symptoms/$symptomId/$severity': typeof SymptomsSymptomIdSeverityRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/symptoms/$symptomId' | '/symptoms'
+  fullPaths:
+    | '/'
+    | '/symptoms/$symptomId'
+    | '/symptoms'
+    | '/symptoms/$symptomId/$severity'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/symptoms/$symptomId' | '/symptoms'
-  id: '__root__' | '/' | '/symptoms/$symptomId' | '/symptoms/'
+  to:
+    | '/'
+    | '/symptoms/$symptomId'
+    | '/symptoms'
+    | '/symptoms/$symptomId/$severity'
+  id:
+    | '__root__'
+    | '/'
+    | '/symptoms/$symptomId'
+    | '/symptoms/'
+    | '/symptoms/$symptomId/$severity'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  SymptomsSymptomIdRoute: typeof SymptomsSymptomIdRoute
+  SymptomsSymptomIdRoute: typeof SymptomsSymptomIdRouteWithChildren
   SymptomsIndexRoute: typeof SymptomsIndexRoute
 }
 
@@ -82,12 +105,30 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SymptomsSymptomIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/symptoms/$symptomId/$severity': {
+      id: '/symptoms/$symptomId/$severity'
+      path: '/$severity'
+      fullPath: '/symptoms/$symptomId/$severity'
+      preLoaderRoute: typeof SymptomsSymptomIdSeverityRouteImport
+      parentRoute: typeof SymptomsSymptomIdRoute
+    }
   }
 }
 
+interface SymptomsSymptomIdRouteChildren {
+  SymptomsSymptomIdSeverityRoute: typeof SymptomsSymptomIdSeverityRoute
+}
+
+const SymptomsSymptomIdRouteChildren: SymptomsSymptomIdRouteChildren = {
+  SymptomsSymptomIdSeverityRoute: SymptomsSymptomIdSeverityRoute,
+}
+
+const SymptomsSymptomIdRouteWithChildren =
+  SymptomsSymptomIdRoute._addFileChildren(SymptomsSymptomIdRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  SymptomsSymptomIdRoute: SymptomsSymptomIdRoute,
+  SymptomsSymptomIdRoute: SymptomsSymptomIdRouteWithChildren,
   SymptomsIndexRoute: SymptomsIndexRoute,
 }
 export const routeTree = rootRouteImport
