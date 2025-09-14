@@ -34,17 +34,17 @@ function SymptomDetail() {
       <div className="w-full max-w-xl p-6 rounded-lg border bg-card p-6 mt-5 text-card-foreground bg-secondary">
         <h2>Please select the severity of your symptoms:</h2>
         <div className="flex gap-4 mt-5 justify-center">
-          <Button variant="outline" className="m-1" size="xl" key={symptom.id}>
+          <Button variant="outline" className="m-1" size="xl" key={symptom.id} asChild>
             <Link to="/symptoms/$symptomId" params={{ symptomId: symptom.id }}>
               Mild
             </Link>
           </Button>
-          <Button variant="outline" className="m-1" size="xl" key={symptom.id}>
+          <Button variant="outline" className="m-1" size="xl" key={symptom.id} asChild>
             <Link to="/symptoms/$symptomId" params={{ symptomId: symptom.id }}>
               Moderate
             </Link>
           </Button>
-          <Button variant="outline" className="m-1" size="xl" key={symptom.id}>
+          <Button variant="outline" className="m-1" size="xl" key={symptom.id} asChild>
             <Link to="/symptoms/$symptomId" params={{ symptomId: symptom.id }}>
               Severe
             </Link>

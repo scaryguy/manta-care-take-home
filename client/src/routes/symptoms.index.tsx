@@ -22,7 +22,7 @@ function Symptoms() {
     <div>
       <h1 className="text-2xl">Symptoms List</h1>
       <div className="flex-row pt-4">
-      {symptoms.map((symptom:Symptom) => <Button variant="outline" className="m-1" key={symptom.id}>
+      {symptoms.map((symptom:Symptom) => <Button variant="outline" className="m-1" key={symptom.id} asChild>
         <Link to="/symptoms/$symptomId" params={{symptomId: symptom.id}}>
           {symptom.name}
         </Link>
