@@ -1,16 +1,17 @@
+import { Outlet } from "@tanstack/react-router";
 import "./App.css";
-import { Button } from "./components/ui/button";
 
 function App() {
   return (
-    <>
-      <div className="text-3xl font-bold text-blue-600">
-        Hello, Tailwind CSS with Vite React!
-      </div>
-      <div className="flex flex-wrap items-center gap-2 md:flex-row">
-      <Button variant="outline">Shadcn Hello!</Button>
-      </div>
-    </>
+    <div className="flex flex-col min-h-screen items-center bg-background p-6">
+      <header className="w-full max-w-md pb-4">
+        <h1 className="text-4xl">Manta Care</h1>
+        <p>Welcome to Symptoms & Interventions</p>
+      </header>
+      <main className="w-full max-w-md p-6 rounded-lg border bg-card p-6 text-card-foreground">
+        <Outlet />
+      </main>
+    </div>
   );
 }
 
