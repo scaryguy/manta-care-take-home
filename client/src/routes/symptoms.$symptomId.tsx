@@ -30,7 +30,7 @@ function SymptomDetail() {
   return (
     <div className="flex flex-col gap-8">
       <div>
-        <h1 className="text-2xl pb-4 uppercase">{symptom.name}</h1>
+        <h1 className="text-3xl pb-4 uppercase">{symptom.name}</h1>
         <p className="text">{symptom.description}</p>
         <div className="w-full text-center p-6 rounded-lg border bg-card p-6 mt-5 text-card-foreground bg-secondary">
           <h2>
