@@ -1,3 +1,9 @@
+export type ApiResponse<T> = {
+  code: number
+  message: T | string
+}
+
+
 
 export interface Intervention {
   id: number;                    // Unique identifier

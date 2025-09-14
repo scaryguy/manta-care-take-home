@@ -8,12 +8,16 @@ export const Route = createFileRoute("/symptoms/")({
 });
 
 function Symptoms() {
-  const { isPending, error, data } = useQuery(symptomsQueryOptions);
-  const symptoms = data?.message;
+  const { isPending, error, data: symptoms } = useQuery(symptomsQueryOptions);
+
   if (isPending) {
     return <h1>Loading...</h1>;
   }
-  console.log("@@@ DATA", data)
+
+  if(error) {
+    return "There was an error, please refresh your page."
+  }
+
   return (
     <div>
       <h1 className="text-2xl">Symptoms List</h1>
