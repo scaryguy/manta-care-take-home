@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { symptomQueryOptions } from "@/lib/api";
 import { useQuery } from "@tanstack/react-query";
 import { createFileRoute, Link, Outlet } from "@tanstack/react-router";
+import { useState } from "react";
 
 export const Route = createFileRoute("/symptoms/$symptomId")({
   params: {
