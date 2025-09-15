@@ -6,7 +6,7 @@ function App() {
     <div className="flex flex-col min-h-screen items-center bg-background p-6">
       <header className="w-full max-w-4xl pb-4">
         <Link to="/symptoms">
-          <h1 className="text-4xl">Manta Care</h1>
+          <h1 className="text-4xl hover:text-gray-500">Manta Care</h1>
         </Link>
 
         <p>Welcome to Symptoms & Interventions</p>
