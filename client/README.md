@@ -1,4 +1,12 @@
 # Take home exercise
+Used technologies:
+
+- React 
+- Tailwind CSS
+- Shadcn
+- TanStack router
+- TanStack query
+- Heroicons
 
 ### Installation & Running
 ```bash
