@@ -41,7 +41,6 @@ function SymptomDetail() {
           <div className="flex gap-4 mt-5 justify-center">
             <Button
               variant="outline"
-              className="m-1"
               size="xl"
               asChild
             >
@@ -54,7 +53,6 @@ function SymptomDetail() {
             </Button>
             <Button
               variant="outline"
-              className="m-1"
               size="xl"
               asChild
             >
@@ -67,7 +65,6 @@ function SymptomDetail() {
             </Button>
             <Button
               variant="outline"
-              className="m-1"
               size="xl"
               asChild
             >
