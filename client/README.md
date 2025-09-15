@@ -12,6 +12,7 @@ Used technologies:
 - Heroicons
 
 ### Installation & Running
+
 ```bash
 # Install dependencies
 npm install
@@ -25,5 +26,7 @@ npm run build
 # Start production server
 npm start
 ```
+
+Make sure that your backend server is running on http://localhost:3030. Go to `server` folder for details.
 
 Sept 2025
